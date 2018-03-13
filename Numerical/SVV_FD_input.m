@@ -2,7 +2,7 @@
 
 rho_0 = 1.225;           %[kg/m^3]
 
-%Weights
+%Weight
 pilot_1 = 95;            %[kg]
 pilot_2 = 82;            %[kg]
 coordinator = 82;        %[kg]
@@ -12,6 +12,17 @@ observer_2L = 61;        %[kg]
 observer_2R = 67;        %[kg]
 observer_3L = 77;        %[kg]
 observer_3R = 108;       %[kg]
+
+%location
+pilot_1 = 95;            %[m]
+pilot_2 = 82;            %[m]
+coordinator = 82;        %[m]
+observer_1L = 89;        %[m]
+observer_1R = 72;        %[m]
+observer_2L = 61;        %[m]
+observer_2R = 67;        %[m]
+observer_3L = 77;        %[m]
+observer_3R = 108;       %[m]
 
 %initial fuel weight
 W_f_i = 4000 * 0.453592; %[kg]
