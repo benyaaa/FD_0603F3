@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 #Input file
 
 rho_0 = 1.225           #[kg/m^3]
-
+MAC = 2.055622        #[m]
 #Weights and cog location
 pilot_1 = array([[95],[131*0.0254]])                #[kg]
 pilot_2 = array([[82],[131*0.0254]])                #[kg]
