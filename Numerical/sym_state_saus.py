@@ -46,14 +46,14 @@ B = np.matrix([[x_de],    #4x1
                [z_de],
                [0.],
                [m_de]])
-C = np.matrix([[1., 0., 0., 0.]]) #1x4
+C = np.matrix([[0., 0., 0., 1.]]) #1x4
 D = np.matrix([[0.]]) #1x1
 
 # system
 
 sys = ss(A, B,C,D)
 T = np.arange(0.,20.1,0.1)
-y, t = step(sys,T)
+y, t = impulse(sys,T)
 plt.plot(t,y)
 plt.show()
 
