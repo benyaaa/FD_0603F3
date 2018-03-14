@@ -49,8 +49,12 @@ C = np.matrix([[0., 0., 1., 0.]]) #1x4
 D = np.matrix([[0.]]) #1x1
 
 # system
+<<<<<<< HEAD
 sys = ss(A, B,C,D)
 T = np.arange(0.,5.1,0.1)
 y, t = impulse(sys,T,input=20)
 plt.plot(t,y)
 plt.show()
+=======
+sys = ss(A, B, C, D)
+>>>>>>> a0be6d171ab037cbfb4d99d39ca1c1c6993490f9
