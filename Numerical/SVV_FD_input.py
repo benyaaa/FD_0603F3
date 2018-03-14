@@ -1,23 +1,35 @@
 from numpy import *
 from math import *
+import scipy.interpolate as itp
+import matplotlib.pyplot as plt
 
 #Input file
 
 rho_0 = 1.225           #[kg/m^3]
 
-#Weights
-pilot_1 = 95            #[kg]
-pilot_2 = 82            #[kg]
-coordinator = 82        #[kg]
-observer_1L = 89        #[kg]
-observer_1R = 72        #[kg]
-observer_2L = 61        #[kg]
-observer_2R = 67        #[kg]
-observer_3L = 77        #[kg]
-observer_3R = 108       #[kg]
+#Weights and cog location
+pilot_1 = array([[95],[131*0.0254]])                #[kg]
+pilot_2 = array([[82],[131*0.0254]])                #[kg]
+coordinator = array([[82],[170*0.0254]])            #[kg]
+observer_1L = array([[89],[214*0.0254]])            #[kg]
+observer_1R = array([[72],[214*0.0254]])            #[kg]
+observer_2L = array([[61],[251*0.0254]])            #[kg]
+observer_2R = array([[67],[251*0.0254]])            #[kg]
+observer_3L = array([[77],[288*0.0254]])            #[kg]
+observer_3R = array([[108],[288*0.0254]])           #[kg]
+BEM = array([[9165*0.45359237],[292.18*0.0254]])
 
-#initial fuel weight
-W_f_i = 4000 * 0.453592 #[kg]
+
+
+#Fuel Moment 4000-2500 [pounds, m*kg]
+M_fuel_solo = array([1141820*0.0254*0.45359237,1113100*0.0254*0.45359237,1084387*0.0254*0.45359237,1055684*0.0254*0.45359237,1027008*0.0254*0.45359237,998340*0.0254*0.45359237,969697*0.0254*0.45359237,941062*0.0254*0.45359237,912480*0.0254*0.45359237,883904*0.0254*0.45359237,855405*0.0254*0.45359237,826906*0.0254*0.45359237,798434*0.0254*0.45359237,769960*0.0254*0.45359237,741533*0.0254*0.45359237,713100*0.0254*0.45359237])
+M_fuel = array([arange(4000,2400,-100),M_fuel_solo])
+M_fuel_function = itp.interp1d(M_fuel[0],M_fuel[1])
+
+
+
+
+
 
 #measured data for stationary, C_L, C_D
 t_m_c = array([1255, 1398, 1613, 1718, 1855, 1934])                     #[s]
