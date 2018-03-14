@@ -46,14 +46,11 @@ def Mach_number(Vc,p):
 
 h = 11000*0.3048
 [rho_isa,T_isa,p_isa,a] = ISA(h)
-Vc = [247, 221, 192, 161, 130, 118]
-Vc = [i*0.51444 for i in Vc]
-TAT = [0.5, -1.5, -3.5, -5.8, -7.2, -7.8]
-TAT = [i+273.15 for i in TAT]
+Vc = V_ias_m_c
+TAT = TAT_m_c
 M =  [Mach_number(i,p_isa) for i in Vc]
-
 T_static = [(TAT[i]/(1+(0.2*(M[i]**2))))for i in range(len(M))]
 T_delta = [TAT[i]-T_isa for i in range(len(M))]
 hp = [h for i in range(len(M))]
-thrust = np.transpose(np.vstack((hp,M,T_delta,FFL_M_c,FFR_M_c)))
+thrust = np.transpose(np.vstack((hp,M,T_delta,FFL_m_c,FFR_m_c)))
 
