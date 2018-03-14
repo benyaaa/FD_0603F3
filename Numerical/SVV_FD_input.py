@@ -24,7 +24,7 @@ observer_1R = array([[72],[214*0.0254]])            #[kg]
 observer_2L = array([[61],[251*0.0254]])            #[kg]
 observer_2R = array([[67],[251*0.0254]])            #[kg]
 observer_3L = array([[77],[288*0.0254]])            #[kg]
-observer_3R = array([[108],[288*0.0254]])           #[kg]
+observer_3R = array([[108],[288*0.0254],[150*0.0254]])           #[kg]
 BEM = array([[9165*0.45359237],[292.18*0.0254]])
 
 
