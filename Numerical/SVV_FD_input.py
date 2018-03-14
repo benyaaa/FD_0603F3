@@ -3,6 +3,14 @@ from math import *
 import scipy.interpolate as itp
 import matplotlib.pyplot as plt
 
+#Constants:
+gamma = 1.4    
+ps = 101325.0
+Ts = 288.15
+rho = 1.225
+gs = 9.80665
+R = 287.00
+
 #Input file
 
 rho_0 = 1.225           #[kg/m^3]

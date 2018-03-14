@@ -26,4 +26,3 @@ def cog(pilot_1, pilot_2, coordinator, observer_1L, observer_1R, observer_2L, ob
     M_total_t = M_pilot_1 + M_pilot_2 + M_coordinator + M_observer_1L + M_observer_1R + M_observer_2L + M_observer_2R + M_observer_3L + M_observer_3R + M_BEM + M_fuel_function(W_fuel_t*2.20462262)
     X_cog_datum = M_total_t/W_total_t
     return W_total_t, X_cog_datum #return aircraft total weight [kg] at time t and center of gravity [m] at time t
-

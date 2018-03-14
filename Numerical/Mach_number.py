@@ -47,13 +47,4 @@ def Mach_number(Vc,p):
     return M
 
 
-h = h_m_e
-p_isa = [ISA(h[i])[2] for i in range(len(h))]
-Vc = V_ias_m_e
-TAT = TAT_m_e
-M =  [Mach_number(Vc[i],p_isa[i]) for i in range(len(Vc))]
-T_static = [(TAT[i]/(1+(0.2*(M[i]**2))))for i in range(len(M))]
-T_delta = [TAT[i]-T_static[i] for i in range(len(M))]
-hp = [h for i in range(len(M))]
-thrust = np.transpose(np.vstack((hp,M,T_delta,FFL_m_e,FFR_m_e)))
 
