@@ -8,26 +8,16 @@ Created on Tue Mar 13 13:33:56 2018
 from SVV_FD_input import *
 import numpy as np
 
-#Constants:
-gamma = 1.4    
-ps = 101325.0
-Ts = 288.15
-rho = 1.225
-gs = 9.80665
-R = 287.00
-alt = [0, 11000, 20000, 32000, 47000, 51000, 71000, 86000, 1000000000];
-a = [-0.0065, 0.0, 0.001, 0.0028, 0.0, -0.0028, -0.002, 0.0];
-
 def ISA(h):
     #Constants:
-    
+    gamma = 1.4    
     ps = 101325.0
     Ts = 288.15
     rho = 1.225
     gs = 9.80665
     R = 287.00
-    alt = [0, 11000, 20000, 32000, 47000, 51000, 71000, 86000, 1000000000];
-    a = [-0.0065, 0.0, 0.001, 0.0028, 0.0, -0.0028, -0.002, 0.0];
+    alt = [0, 11000, 20000, 32000, 47000, 51000, 71000, 86000, 1000000000]
+    a = [-0.0065, 0.0, 0.001, 0.0028, 0.0, -0.0028, -0.002, 0.0]
     i = 0
  
     while h > alt[i]:
@@ -47,6 +37,7 @@ def ISA(h):
     a = np.sqrt(gamma*R*T1)
     return rho , T1, p, a
 
+
 def Mach_number(Vc,p):
     gamma = 1.4
     rho_0 = 1.225
@@ -55,13 +46,14 @@ def Mach_number(Vc,p):
 
     return M
 
-h = 11000*0.3048
-[rho_isa,T_isa,p_isa,a] = ISA(h)
-Vc = V_ias_m_c
-TAT = TAT_m_c
-M =  [Mach_number(i,p_isa) for i in Vc]
+
+h = h_m_e
+p_isa = [ISA(h[i])[2] for i in range(len(h))]
+Vc = V_ias_m_e
+TAT = TAT_m_e
+M =  [Mach_number(Vc[i],p_isa[i]) for i in range(len(Vc))]
 T_static = [(TAT[i]/(1+(0.2*(M[i]**2))))for i in range(len(M))]
-T_delta = [TAT[i]-T_isa for i in range(len(M))]
+T_delta = [TAT[i]-T_static[i] for i in range(len(M))]
 hp = [h for i in range(len(M))]
-thrust = np.transpose(np.vstack((hp,M,T_delta,FFL_m_c,FFR_m_c)))
+thrust = np.transpose(np.vstack((hp,M,T_delta,FFL_m_e,FFR_m_e)))
 
