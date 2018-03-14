@@ -7,9 +7,20 @@ Created on Tue Mar 13 13:33:56 2018
 """
 from SVV_FD_input import *
 import numpy as np
+
+#Constants:
+gamma = 1.4    
+ps = 101325.0
+Ts = 288.15
+rho = 1.225
+gs = 9.80665
+R = 287.00
+alt = [0, 11000, 20000, 32000, 47000, 51000, 71000, 86000, 1000000000];
+a = [-0.0065, 0.0, 0.001, 0.0028, 0.0, -0.0028, -0.002, 0.0];
+
 def ISA(h):
     #Constants:
-    gamma = 1.4
+    
     ps = 101325.0
     Ts = 288.15
     rho = 1.225
