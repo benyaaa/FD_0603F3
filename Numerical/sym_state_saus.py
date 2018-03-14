@@ -20,4 +20,4 @@ B = np.matrix([[ 1/m], [ 0]])
 C = np.matrix([[ 0, 1]])
 D = np.matrix([[ 0]])
 # system
-sys = sp.StateSpace(A, B, C, D)
+sys = ss(A, B, C, D)
