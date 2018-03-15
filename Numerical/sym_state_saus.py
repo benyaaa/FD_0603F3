@@ -46,23 +46,26 @@ B = np.matrix([[x_de],    #4x1
                [z_de],
                [0.],
                [m_de]])
-C = np.matrix([[0., 0., 1., 0.]]) #1x4
+C = np.matrix([[1., 0., 0., 0.]]) #1x4
 D = np.matrix([[0.]]) #1x1
 
 
-T = np.arange(0.,20.1,0.1)
+T = np.arange(0.,100.1,0.1)
+U1 = np.zeros((len(T),1))
+U1[0:10]=-0.005
 # system for pitch
 sys = ss(A, B,C,D)
-y, t = impulse(sys,T)
-#system for pitch rate 
-C1 = np.matrix([[1., 0., 0., 0.]])
+y, t, x = lsim(sys,U1,T)
+#system for speed 
+C1 = np.matrix([[0., 0., 1., 0.]])
 sys1 = ss(A,B,C1,D)
-z, t = impulse(sys1,T)
+z, t, x = lsim(sys1,U1,T)
 
 
 
 plt.plot(t,y)
 plt.plot(t,z)
+#plt.plot(t,x)
 plt.show()
 
 print sp.linalg.eig(A)
