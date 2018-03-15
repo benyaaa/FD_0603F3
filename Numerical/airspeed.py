@@ -50,4 +50,8 @@ f = itp.interp1d(V_red_e, F_red_e, kind='cubic')
 print V_red_e
 print F_red_e
 plt.plot(V_red_e, F_red_e, 'o', x,f(x), '-')
+plt.legend(['data',  'cubic interpolation'], loc='best')
+plt.xlabel('V_red_e')
+plt.ylabel('F_red_e')
+plt.title('X')
 plt.show()
