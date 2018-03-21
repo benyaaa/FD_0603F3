@@ -7,8 +7,8 @@ from Mach_number import *
 
 hp0    =  11000*0.3048     	      # pressure altitude in the stationary flight condition [m]
 V0     = 100            # true airspeed in the stationary flight condition [m/sec]
-alpha0 =  0.02          # angle of attack in the stationary flight condition [rad]
-th0    =  0           # pitch angle in the stationary flight condition [rad]
+alpha0 =  -0.02          # angle of attack in the stationary flight condition [rad]
+th0    =  -0.02           # pitch angle in the stationary flight condition [rad]
 
 # Aircraft mass
 m      = 6704.5488           # mass [kg]
