@@ -6,21 +6,21 @@ from Mach_number import *
 # Stationary flight condition
 
 hp0    =  11000*0.3048     	      # pressure altitude in the stationary flight condition [m]
-V0     = 100            # true airspeed in the stationary flight condition [m/sec]
+V0     =  102          # true airspeed in the stationary flight condition [m/sec]
 alpha0 =  0.02          # angle of attack in the stationary flight condition [rad]
-th0    =  0           # pitch angle in the stationary flight condition [rad]
+th0    =  0.02           # pitch angle in the stationary flight condition [rad]
 
 # Aircraft mass
-m      = 6704.5488           # mass [kg]
+m      = 60500/9.81          # mass [kg]
 
 # aerodynamic properties
 e      = 0.8            # Oswald factor [ ]
-CD0    = 0.04            # Zero lift drag coefficient [ ]
-CLa    = 5.084            # Slope of CL-alpha curve [ ]
+CD0    = 0.03067041            # Zero lift drag coefficient [ ]
+CLa    = 6.073352628           # Slope of CL-alpha curve [ ]
 
 # Longitudinal stability
-Cma    =  -0.5626           # longitudinal stabilty [ ]
-Cmde   =  -1.1642           # elevator effectiveness [ ]
+Cma    =  -0.45533           # longitudinal stabilty [ ]
+Cmde   =  -0.51604           # elevator effectiveness [ ]
 
 # Aircraft geometry
 
@@ -51,8 +51,8 @@ W      = m * g            # [N]       (aircraft weight)
 
 # Constant values concerning aircraft inertia
 
-muc    = m / (rho * S * c)
-mub    = m / (rho * S * b)
+muc    = m / (rho0 * S * c)
+mub    = m / (rho0 * S * b)
 KX2    = 0.019
 KZ2    = 0.042
 KXZ    = 0.002

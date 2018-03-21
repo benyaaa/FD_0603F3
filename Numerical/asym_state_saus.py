@@ -50,14 +50,18 @@ C = np.matrix([[0., 0., 0., 1.],
                [0., 0., 1., 0.]]) #2x4
 D = np.matrix([[0.,0.],[0.,0.]]) #2x2
 
-T = np.arange(0.,15.1,0.1)
+T = np.arange(0.,5.1,0.1)
 U1 = np.zeros((len(T),2))
-U1[1:11,1]=0.025
+U1[0:51,0]=1.3*np.pi/180
+
+
 # system for pitch
 sys = ss(A, B,C,D)
 y, t, x = lsim(sys,U1,T)
 
-plt.plot(t,y*(2*V/b))
+plt.plot(t ,y[:,1]*360/(2*np.pi)*(2*V/b))
+plt.plot(t ,y[:,0]*360/(2*np.pi)*(2*V/b))
 plt.show()
 
-print sp.linalg.eig(A)
+zzeigenmotions = sp.linalg.eig(A)
+damping = damp(sys)
